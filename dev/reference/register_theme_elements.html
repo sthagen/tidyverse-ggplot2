@@ -129,6 +129,9 @@ element tree and provide default settings for newly defined theme elements." />
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
     <li>
+      <a href="https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/">Version 3.3.0</a>
+    </li>
+    <li>
       <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
     </li>
     <li>
@@ -156,7 +159,7 @@ element tree and provide default settings for newly defined theme elements." />
   </ul>
 </li>
         <li>
-  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+  <a href="https://www.ggplot2-exts.org/gallery/">Extensions</a>
 </li>
 <li>
   <a href="https://github.com/tidyverse/ggplot2">
@@ -248,7 +251,7 @@ examples for details. This function is meant primarily for developers of extensi
 packages, who are strongly urged to adhere to the following best practices:</p><ol>
 <li><p>Call <code>register_theme_elements()</code> from the <code><a href='https://rdrr.io/r/base/ns-hooks.html'>.onLoad()</a></code> function of your package, so
 that the new theme elements are available to anybody using functions from your package,
-irrespective of whether the package has been attached (with <code><a href='https://rdrr.io/r/base/library.html'>library()</a></code> or <code><a href='https://rdrr.io/r/base/library.html'>require()</a></code>)
+irrespective of whether the package has been attached (with <code>library()</code> or <code>require()</code>)
 or not.</p></li>
 <li><p>For any new elements you create, prepend them with the name of your package, to avoid
 name clashes with other extension packages. For example, if you are working on a package
@@ -292,7 +295,7 @@ element inheritance relationships for the element tree.</p>
 <span class='co'># Revert to the original ggplot2 settings</span>
 <span class='fu'>reset_theme_settings</span>()</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>

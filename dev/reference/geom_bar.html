@@ -132,6 +132,9 @@ uses stat_identity(): it leaves the data as is." />
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
     <li>
+      <a href="https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/">Version 3.3.0</a>
+    </li>
+    <li>
       <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
     </li>
     <li>
@@ -159,7 +162,7 @@ uses stat_identity(): it leaves the data as is." />
   </ul>
 </li>
         <li>
-  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+  <a href="https://www.ggplot2-exts.org/gallery/">Extensions</a>
 </li>
 <li>
   <a href="https://github.com/tidyverse/ggplot2">
@@ -202,7 +205,6 @@ uses <code><a href='stat_identity.html'>stat_identity()</a></code>: it leaves th
   <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"stack"</span>,
   <span class='no'>...</span>,
   <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>orientation</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
   <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
@@ -272,12 +274,6 @@ to the paired geom/stat.</p></td>
     <tr>
       <th>width</th>
       <td><p>Bar width. By default, set to 90% of the resolution of the data.</p></td>
-    </tr>
-    <tr>
-      <th>binwidth</th>
-      <td><p><code>geom_bar()</code> no longer has a binwidth argument---if
-you use it you'll get a warning telling to you use
-<code><a href='geom_histogram.html'>geom_histogram()</a></code> instead.</p></td>
     </tr>
     <tr>
       <th>na.rm</th>
@@ -416,7 +412,7 @@ number of cases at each <code>x</code> position (without binning into ranges).
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>)) + <span class='fu'>geom_bar</span>()</div><div class='img'><img src='geom_bar-8.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># cf. a histogram of the same data</span>
 <span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>df</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>x</span>)) + <span class='fu'><a href='geom_histogram.html'>geom_histogram</a></span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><div class='img'><img src='geom_bar-9.png' alt='' width='700' height='433' /></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>

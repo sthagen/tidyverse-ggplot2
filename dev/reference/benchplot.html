@@ -129,6 +129,9 @@ Broken down into construct, build, render and draw times." />
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
     <li>
+      <a href="https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/">Version 3.3.0</a>
+    </li>
+    <li>
       <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
     </li>
     <li>
@@ -156,7 +159,7 @@ Broken down into construct, build, render and draw times." />
   </ul>
 </li>
         <li>
-  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+  <a href="https://www.ggplot2-exts.org/gallery/">Extensions</a>
 </li>
 <li>
   <a href="https://github.com/tidyverse/ggplot2">
@@ -202,26 +205,26 @@ Broken down into construct, build, render and draw times.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>())</div><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.003        0   0.003
-#&gt; 2     build     0.011        0   0.011
-#&gt; 3    render     0.025        0   0.025
-#&gt; 4      draw     0.028        0   0.028
-#&gt; 5     TOTAL     0.067        0   0.067</div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><div class='output co'>#&gt;        step user.self sys.self elapsed
 #&gt; 1 construct     0.002        0   0.002
-#&gt; 2     build     0.025        0   0.025
-#&gt; 3    render     0.076        0   0.076
-#&gt; 4      draw     0.048        0   0.048
-#&gt; 5     TOTAL     0.151        0   0.151</div><div class='input'>
+#&gt; 2     build     0.018        0   0.019
+#&gt; 3    render     0.031        0   0.032
+#&gt; 4      draw     0.037        0   0.037
+#&gt; 5     TOTAL     0.088        0   0.090</div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><div class='output co'>#&gt;        step user.self sys.self elapsed
+#&gt; 1 construct     0.002    0.000   0.003
+#&gt; 2     build     0.029    0.000   0.029
+#&gt; 3    render     0.099    0.001   0.100
+#&gt; 4      draw     0.079    0.001   0.081
+#&gt; 5     TOTAL     0.209    0.002   0.213</div><div class='input'>
 <span class='co'># With tidy eval:</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tidyeval.html'>expr</a></span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>())
 <span class='fu'>benchplot</span>(!!<span class='no'>p</span>)</div><div class='img'><img src='benchplot-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.001        0   0.002
-#&gt; 2     build     0.012        0   0.012
-#&gt; 3    render     0.027        0   0.027
-#&gt; 4      draw     0.028        0   0.028
-#&gt; 5     TOTAL     0.068        0   0.069</div></pre>
+#&gt; 1 construct     0.002    0.000   0.002
+#&gt; 2     build     0.016    0.000   0.017
+#&gt; 3    render     0.062    0.001   0.063
+#&gt; 4      draw     0.040    0.000   0.040
+#&gt; 5     TOTAL     0.120    0.001   0.122</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>

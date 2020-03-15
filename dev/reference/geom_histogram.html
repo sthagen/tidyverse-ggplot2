@@ -131,6 +131,9 @@ across the levels of a categorical variable." />
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">Release notes</li>
     <li>
+      <a href="https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/">Version 3.3.0</a>
+    </li>
+    <li>
       <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
     </li>
     <li>
@@ -158,7 +161,7 @@ across the levels of a categorical variable." />
   </ul>
 </li>
         <li>
-  <a href="http://www.ggplot2-exts.org/gallery/">Extensions</a>
+  <a href="https://www.ggplot2-exts.org/gallery/">Extensions</a>
 </li>
 <li>
   <a href="https://github.com/tidyverse/ggplot2">
@@ -329,10 +332,10 @@ to either <code>"x"</code> or <code>"y"</code>. See the <em>Orientation</em> sec
 <code>boundary</code>, may be specified for a single plot. <code>center</code> specifies the
 center of one of the bins. <code>boundary</code> specifies the boundary between two
 bins. Note that if either is above or below the range of the data, things
-will be shifted by the appropriate integer multiple of <code>width</code>.
-For example, to center on integers use <code>width = 1</code> and <code>center = 0</code>, even
+will be shifted by the appropriate integer multiple of <code>binwidth</code>.
+For example, to center on integers use <code>binwidth = 1</code> and <code>center = 0</code>, even
 if <code>0</code> is outside the range of the data. Alternatively, this same alignment
-can be specified with <code>width = 1</code> and <code>boundary = 0.5</code>, even if <code>0.5</code> is
+can be specified with <code>binwidth = 1</code> and <code>boundary = 0.5</code>, even if <code>0.5</code> is
 outside the range of the data.</p></td>
     </tr>
     <tr>
@@ -365,7 +368,7 @@ one change at a time. You may need to look at a few options to uncover
 the full story behind your data.</p>
 <p>In addition to <code>geom_histogram</code>, you can create a histogram plot by using
 <code><a href='scale_binned.html'>scale_x_binned()</a></code> with <code><a href='geom_bar.html'>geom_bar()</a></code>. This method by default plots tick marks
-in between each bar.  .</p>
+in between each bar.</p>
     <h2 class="hasAnchor" id="orientation"><a class="anchor" href="#orientation"></a>Orientation</h2>
 
     
@@ -456,7 +459,7 @@ x data, whereas <code>stat_bin()</code> is suitable only for continuous x data.<
   <span class='fu'><a href='facet_wrap.html'>facet_wrap</a></span>(~<span class='no'>variable</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>'free_x'</span>) +
   <span class='fu'>geom_histogram</span>(<span class='kw'>binwidth</span> <span class='kw'>=</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fl'>2</span> * <span class='fu'><a href='https://rdrr.io/r/stats/IQR.html'>IQR</a></span>(<span class='no'>x</span>) / (<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>x</span>)^(<span class='fl'>1</span>/<span class='fl'>3</span>)))</div><div class='img'><img src='geom_histogram-10.png' alt='' width='700' height='433' /></div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
