@@ -17,28 +17,38 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <!-- Bootstrap -->
 <link href="../tidyverse.css" rel="stylesheet">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+
+<!-- docsearch -->
+<script src="../docsearch.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
 <meta property="og:title" content="Function reference" />
@@ -84,7 +94,7 @@
 
       <div class="navbar-brand-container">
         <a class="navbar-brand" href="../index.html">ggplot2</a>
-        <div class="info">
+        <div class="info hidden-xs hidden-sm">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
           <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.0.9000</span>
         </div>
@@ -155,7 +165,7 @@
   </ul>
 </li>
         <li>
-  <a href="https://www.ggplot2-exts.org/gallery/">Extensions</a>
+  <a href="https://exts.ggplot2.tidyverse.org/gallery/">Extensions</a>
 </li>
 <li>
   <a href="https://github.com/tidyverse/ggplot2/">
@@ -164,6 +174,12 @@
   </a>
 </li>
       </ul>
+      
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+        </div>
+      </form>
       
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -194,6 +210,11 @@
           <p class="section-desc"><p>All ggplot2 plots begin with a call to <code><a href="../reference/ggplot.html">ggplot()</a></code>, supplying default data and aesthethic mappings, specified by <code><a href="../reference/aes.html">aes()</a></code>. You then add layers, scales, coords and facets with <code><a href="https://rdrr.io/r/base/Arithmetic.html">+</a></code>. To save a plot to disk, use <code><a href="../reference/ggsave.html">ggsave()</a></code>.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -232,6 +253,11 @@
           <p class="section-desc"><p>A layer combines data, aesthetic mapping, a geom (geometric object), a stat (statistical transformation), and a position adjustment. Typically, you will create layers using a <code>geom_</code> function, overriding the default position and stat if needed.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td><a href="geom_abline.html"><img src="icons/geom_abline.png" width="30" height="30" alt="" /></a></td>
         <td>
@@ -420,6 +446,11 @@
           <p class="section-desc"><p>A handful of layers are more easily specified with a <code>stat_</code> function, drawing attention to the statistical transformation rather than the visual appearance. The computed variables can be mapped using <code><a href="../reference/aes_eval.html">after_stat()</a></code>.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -482,6 +513,11 @@
           <p class="section-desc"><p>All layers have a position adjustment that resolves overlapping geoms. Override the default by using the <code>position</code> argument to the <code>geom_</code> or <code>stat_</code> function.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td><a href="position_dodge.html"><img src="icons/position_dodge.png" width="30" height="30" alt="" /></a></td>
         <td>
@@ -526,6 +562,11 @@
           <p class="section-desc"><p>Annotations are a special type of layer that don’t inherit global settings from the plot. They are used to add fixed reference data to plots.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td><a href="geom_abline.html"><img src="icons/geom_abline.png" width="30" height="30" alt="" /></a></td>
         <td>
@@ -576,6 +617,11 @@
           <p class="section-desc"><p>The following help topics give a broad overview of some of the ways you can use each aesthetic.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -608,6 +654,11 @@
           <p class="section-desc"><p>Scales control the details of how data values are translated to visual properties. Override the default scales to tweak details like the axis labels or legend keys, or to use a completely different translation from data to aesthetic. <code><a href="../reference/labs.html">labs()</a></code> and <code><a href="../reference/lims.html">lims()</a></code> are convenient helpers for the most common adjustments to the labels and limits.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -742,6 +793,11 @@
           <p class="section-desc"><p>The guides (the axes and legends) help readers interpret your plots. Guides are mostly controlled via the scale (e.g. with the <code>limits</code>, <code>breaks</code>, and <code>labels</code> arguments), but sometimes you will need additional control over guide appearance. Use <code><a href="../reference/guides.html">guides()</a></code> or the <code>guide</code> argument to individual scales along with <code>guide_*()</code> functions.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -804,6 +860,11 @@
           <p class="section-desc"><p>Facetting generates small multiples, each displaying a different subset of the data. Facets are an alternative to aesthetics for displaying additional discrete variables.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td><a href="facet_grid.html"><img src="icons/facet_grid.png" width="30" height="30" alt="" /></a></td>
         <td>
@@ -830,6 +891,11 @@
           <p class="section-desc"><p>These functions provide a flexible toolkit for controlling the display of the “strip” labels on facets.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -856,6 +922,11 @@
           <p class="section-desc"><p>The coordinate system determines how the <code>x</code> and <code>y</code> aesthetics combine to position elements in the plot. The default coordinate system is Cartesian (<code><a href="../reference/coord_cartesian.html">coord_cartesian()</a></code>), which can be tweaked with <code><a href="../reference/coord_map.html">coord_map()</a></code>, <code><a href="../reference/coord_fixed.html">coord_fixed()</a></code>, <code><a href="../reference/coord_flip.html">coord_flip()</a></code>, and <code><a href="../reference/coord_trans.html">coord_trans()</a></code>, or completely replaced with <code><a href="../reference/coord_polar.html">coord_polar()</a></code>.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td><a href="coord_cartesian.html"><img src="icons/coord_cartesian.png" width="30" height="30" alt="" /></a></td>
         <td>
@@ -900,6 +971,11 @@
           <p class="section-desc"><p>Themes control the display of all non-data elements of the plot. You can override all settings with a complete theme like <code><a href="../reference/ggtheme.html">theme_bw()</a></code>, or choose to tweak individual settings by using <code><a href="../reference/theme.html">theme()</a></code> and the <code>element_</code> functions. Use <code><a href="../reference/theme_get.html">theme_set()</a></code> to modify the active theme, affecting all future plots.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -932,6 +1008,11 @@
           <p class="section-desc"><p>These functions provides tools to help you program with ggplot2, creating functions and for-loops that generate plots for you.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -952,6 +1033,11 @@
           <p class="section-desc"><p>To create your own geoms, stats, scales, and facets, you’ll need to learn a bit about the object oriented system that ggplot2 uses. Start by reading <code><a href="../articles/extending-ggplot2.html">vignette("extending-ggplot2")</a></code> then consult these functions for more details.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -972,6 +1058,11 @@
           <p class="section-desc"><p>ggplot2 also provides a handful of helpers that are useful for creating visualisations.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -1004,6 +1095,11 @@
           <p class="section-desc"><p>ggplot2 comes with a selection of built-in datasets that are used in examples to illustrate various visualisation challenges.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -1072,6 +1168,11 @@
           <p class="section-desc"><p><code><a href="../reference/autoplot.html">autoplot()</a></code> is an extension mechanism for ggplot2: it provides a way for package authors to add methods that work like the base <code><a href="https://rdrr.io/r/graphics/plot.html">plot()</a></code> function, generating useful default plots with little user interaction. <code><a href="../reference/fortify.html">fortify()</a></code> turns objects into tidy data frames: it has largely been superceded by the <a href="https://github.com/tidyverse/broom">broom package</a>.</p></p>
         </th>
       </tr>
+      
+      
+    </tbody><tbody>
+      
+      
       <tr>
         <td></td>
         <td>
@@ -1125,6 +1226,23 @@
    </div>
 
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.js" integrity="sha256-GKvGqXDznoRYHCwKXGnuchvKSwmx9SRMrZOTh2g4Sb0=" crossorigin="anonymous"></script>
+<script>
+  docsearch({
+    
+    
+    apiKey: 'e1261f3df95d2d4704c626ff11a4b536',
+    indexName: 'tidyverse_ggplot2',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+
 
 
   </body>

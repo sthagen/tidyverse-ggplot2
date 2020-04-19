@@ -18,28 +18,38 @@ Broken down into construct, build, render and draw times. — benchplot • ggpl
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 <!-- Bootstrap -->
 <link href="../tidyverse.css" rel="stylesheet">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+
+<!-- docsearch -->
+<script src="../docsearch.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.css" integrity="sha256-QOSRU/ra9ActyXkIBbiIB144aDBdtvXBcNc3OTNuX/Q=" crossorigin="anonymous" />
+<link href="../docsearch.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
 
 
 <meta property="og:title" content="Benchmark plot creation time.
@@ -88,7 +98,7 @@ Broken down into construct, build, render and draw times." />
 
       <div class="navbar-brand-container">
         <a class="navbar-brand" href="../index.html">ggplot2</a>
-        <div class="info">
+        <div class="info hidden-xs hidden-sm">
           <span class="partof">part of the <a href="https://tidyverse.org">tidyverse</a></span>
           <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">3.3.0.9000</span>
         </div>
@@ -159,7 +169,7 @@ Broken down into construct, build, render and draw times." />
   </ul>
 </li>
         <li>
-  <a href="https://www.ggplot2-exts.org/gallery/">Extensions</a>
+  <a href="https://exts.ggplot2.tidyverse.org/gallery/">Extensions</a>
 </li>
 <li>
   <a href="https://github.com/tidyverse/ggplot2/">
@@ -168,6 +178,12 @@ Broken down into construct, build, render and draw times." />
   </a>
 </li>
       </ul>
+      
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off">
+        </div>
+      </form>
       
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -207,22 +223,22 @@ Broken down into construct, build, render and draw times.</p>
     <pre class="examples"><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>())</div><div class='output co'>#&gt;        step user.self sys.self elapsed
 #&gt; 1 construct     0.002        0   0.002
 #&gt; 2     build     0.013        0   0.013
-#&gt; 3    render     0.033        0   0.034
-#&gt; 4      draw     0.036        0   0.037
-#&gt; 5     TOTAL     0.084        0   0.086</div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.002    0.000   0.003
-#&gt; 2     build     0.028    0.000   0.028
-#&gt; 3    render     0.101    0.005   0.107
-#&gt; 4      draw     0.060    0.000   0.063
-#&gt; 5     TOTAL     0.191    0.005   0.201</div><div class='input'>
+#&gt; 3    render     0.031        0   0.031
+#&gt; 4      draw     0.036        0   0.038
+#&gt; 5     TOTAL     0.082        0   0.084</div><div class='input'><span class='fu'>benchplot</span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>() + <span class='fu'><a href='facet_grid.html'>facet_grid</a></span>(<span class='no'>.</span> ~ <span class='no'>cyl</span>))</div><div class='output co'>#&gt;        step user.self sys.self elapsed
+#&gt; 1 construct     0.003        0   0.003
+#&gt; 2     build     0.029        0   0.029
+#&gt; 3    render     0.090        0   0.090
+#&gt; 4      draw     0.057        0   0.058
+#&gt; 5     TOTAL     0.179        0   0.180</div><div class='input'>
 <span class='co'># With tidy eval:</span>
 <span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='tidyeval.html'>expr</a></span>(<span class='fu'><a href='ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='aes.html'>aes</a></span>(<span class='no'>mpg</span>, <span class='no'>wt</span>)) + <span class='fu'><a href='geom_point.html'>geom_point</a></span>())
 <span class='fu'>benchplot</span>(!!<span class='no'>p</span>)</div><div class='img'><img src='benchplot-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt;        step user.self sys.self elapsed
-#&gt; 1 construct     0.002    0.000   0.002
-#&gt; 2     build     0.014    0.000   0.015
+#&gt; 1 construct     0.002    0.000   0.001
+#&gt; 2     build     0.014    0.000   0.016
 #&gt; 3    render     0.034    0.000   0.034
-#&gt; 4      draw     0.040    0.001   0.041
-#&gt; 5     TOTAL     0.090    0.001   0.092</div></pre>
+#&gt; 4      draw     0.035    0.001   0.036
+#&gt; 5     TOTAL     0.085    0.001   0.087</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -248,6 +264,23 @@ Broken down into construct, build, render and draw times.</p>
    </div>
 
   
+<script src="https://cdnjs.cloudflare.com/ajax/libs/docsearch.js/2.6.1/docsearch.min.js" integrity="sha256-GKvGqXDznoRYHCwKXGnuchvKSwmx9SRMrZOTh2g4Sb0=" crossorigin="anonymous"></script>
+<script>
+  docsearch({
+    
+    
+    apiKey: 'e1261f3df95d2d4704c626ff11a4b536',
+    indexName: 'tidyverse_ggplot2',
+    inputSelector: 'input#search-input.form-control',
+    transformData: function(hits) {
+      return hits.map(function (hit) {
+        hit.url = updateHitURL(hit);
+        return hit;
+      });
+    }
+  });
+</script>
+
 
 
   </body>
