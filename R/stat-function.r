@@ -24,10 +24,8 @@ stat_function <- function(mapping = NULL, data = NULL,
                           na.rm = FALSE,
                           show.legend = NA,
                           inherit.aes = TRUE) {
-
-  # Warn if supplied data is going to be overwritten
-  if (!is.null(data)) {
-    warn("`data` is not used by stat_function()")
+  if (is.null(data)) {
+    data <- ensure_nonempty_data
   }
 
   layer(
@@ -57,15 +55,21 @@ StatFunction <- ggproto("StatFunction", Stat,
   default_aes = aes(y = after_scale(y)),
 
   compute_group = function(data, scales, fun, xlim = NULL, n = 101, args = list()) {
-    range <- xlim %||% scales$x$dimension()
-    xseq <- seq(range[1], range[2], length.out = n)
-
-    if (scales$x$is_discrete()) {
+    if (is.null(scales$x)) {
+      range <- xlim %||% c(0, 1)
+      xseq <- seq(range[1], range[2], length.out = n)
       x_trans <- xseq
     } else {
-      # For continuous scales, need to back transform from transformed range
-      # to original values
-      x_trans <- scales$x$trans$inverse(xseq)
+      range <- xlim %||% scales$x$dimension()
+      xseq <- seq(range[1], range[2], length.out = n)
+
+      if (scales$x$is_discrete()) {
+        x_trans <- xseq
+      } else {
+        # For continuous scales, need to back transform from transformed range
+        # to original values
+        x_trans <- scales$x$trans$inverse(xseq)
+      }
     }
 
     if (is.formula(fun)) fun <- as_function(fun)
@@ -82,3 +86,15 @@ StatFunction <- ggproto("StatFunction", Stat,
     ))
   }
 )
+
+# Convenience function used by `stat_function()` and
+# `geom_function()` to convert empty input data into
+# non-empty input data without touching any non-empty
+# input data that may have been provided.
+ensure_nonempty_data <- function(data) {
+  if (empty(data)) {
+    new_data_frame(list(group = 1), n = 1)
+  } else {
+    data
+  }
+}

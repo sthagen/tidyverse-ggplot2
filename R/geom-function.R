@@ -18,7 +18,7 @@
 #'   geom_function(fun = dnorm, colour = "red")
 #'
 #' # To plot functions without data, specify range of x-axis
-#' base <- ggplot(data.frame(x = c(-5, 5)), aes(x))
+#' base <- ggplot() + xlim(-5, 5)
 #' base + geom_function(fun = dnorm)
 #' base + geom_function(fun = dnorm, args = list(mean = 2, sd = .5))
 #'
@@ -44,9 +44,8 @@
 geom_function <- function(mapping = NULL, data = NULL, stat = "function",
                           position = "identity", ..., na.rm = FALSE,
                           show.legend = NA, inherit.aes = TRUE) {
-  # Warn if supplied data is going to be overwritten
-  if (!is.null(data) && identical(stat, "function")) {
-    warn("`data` is not used by stat_function()")
+  if (is.null(data)) {
+    data <- ensure_nonempty_data
   }
 
   layer(
