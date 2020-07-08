@@ -84,7 +84,7 @@ the list of palettes of appropriate \code{type}. The list of available palettes 
 in the Palettes section.}
 
 \item{direction}{Sets the order of colours in the scale. If 1, the default,
-colours are as output by \code{\link[RColorBrewer:brewer.pal]{RColorBrewer::brewer.pal()}}. If -1, the
+colours are as output by \code{\link[RColorBrewer:ColorBrewer]{RColorBrewer::brewer.pal()}}. If -1, the
 order of colours is reversed.}
 
 \item{aesthetics}{Character string or vector of character strings listing the
@@ -155,7 +155,9 @@ p + scale_fill_brewer()
 # the order of colour can be reversed
 p + scale_fill_brewer(direction = -1)
 # the brewer scales look better on a darker background
-p + scale_fill_brewer(direction = -1) + theme_dark()
+p +
+  scale_fill_brewer(direction = -1) +
+  theme_dark()
 }
 
 # Use distiller variant with continous data
