@@ -1,5 +1,8 @@
 # ggplot2 (development version)
 
+* `ggsave()` now sets the default background to match the fill value of the
+  `plot.background` theme element (@karawoo, #4057)
+
 * Extended `stat_ecdf()` to calculate the cdf from either x or y instead from y only (@jgjl, #4005).
 
 * Fixed a bug in `labeller()` so that `.default` is passed to `as_labeller()`
@@ -13,6 +16,9 @@
   `scale_*(guide = FALSE)` to remove a guide. Please use 
   `guides(<scale> = "none")` or `scale_*(guide = "none")` instead 
   (@yutannihilation, #4094).
+  
+* Date and datetime position scales support out-of-bounds (oob) arguments to 
+  control how limits affect data outside those limits (@teunbrand, #4199).
 
 * `stat_bin()`'s computed variable `width` is now documented (#3522).
 
