@@ -202,7 +202,7 @@
 <div id="contributing-to-ggplot2-development" class="section level1">
 
 <p>The goal of this guide is to help you get up and contributing to ggplot2 as quickly as possible. The guide is divided into two main pieces:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Filing a bug report or feature request in an issue.</li>
 <li>Suggesting a change via a pull request.</li>
 </ol>
@@ -211,11 +211,11 @@
 <h2 class="hasAnchor">
 <a href="#issues" class="anchor"></a>Issues</h2>
 <p>When filing an issue, the most important thing is to include a minimal reproducible example so that we can quickly verify the problem, and then figure out how to fix it. There are three things you need to include to make your example reproducible: required packages, data, code.</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li><p><strong>Packages</strong> should be loaded at the top of the script, so it’s easy to see which ones the example needs.</p></li>
 <li>
 <p>The easiest way to include <strong>data</strong> is to use <code><a href="https://rdrr.io/r/base/dput.html">dput()</a></code> to generate the R code to recreate it. For example, to recreate the <code>mtcars</code> dataset in R, I’d perform the following steps:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Run <code><a href="https://rdrr.io/r/base/dput.html">dput(mtcars)</a></code> in R</li>
 <li>Copy the output</li>
 <li>In my reproducible script, type <code>mtcars &lt;-</code> then paste.</li>
@@ -239,7 +239,7 @@ The shorter your code is, the easier it is to understand.</p></li>
 <h2 class="hasAnchor">
 <a href="#pull-requests" class="anchor"></a>Pull requests</h2>
 <p>To contribute a change to ggplot2, you follow these steps:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>Create a branch in git and make your changes.</li>
 <li>Push branch to github and issue pull request (PR).</li>
 <li>Discuss the pull request.</li>
@@ -261,7 +261,7 @@ The shorter your code is, the easier it is to understand.</p></li>
 See http://docs.ggplot2.org/dev/vignettes/development.html for more details.
 --->
 <p>Pull requests will be evaluated against a seven point checklist:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li>
 <p><strong>Motivation</strong>. Your pull request should clearly and concisely motivate the need for change. Unfortunately neither Winston nor I have much time to work on ggplot2 these days, so you need to describe the problem and show how your pull request solves it as concisely as possible.</p>
 <p>Also include this motivation in <code>NEWS</code> so that when a new release of ggplot2 comes out it’s easy for users to see what’s changed. Add your item at the top of the file and use markdown for formatting. The news item should end with <code>(@yourGithubUsername, #the_issue_number)</code>.</p>

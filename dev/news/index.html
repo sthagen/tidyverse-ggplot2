@@ -363,10 +363,7 @@
 </ul>
 </li>
 <li><p><code><a href="../reference/geom_polygon.html">geom_polygon()</a></code> can now draw polygons with holes using the new <code>subgroup</code> aesthetic. This functionality requires R 3.6.0 (<a href='https://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3128'>#3128</a>)</p></li>
-<li>
-<p>Aesthetic mappings now accept functions that return <code>NULL</code> (<a href='https://github.com/yutannihilation'>@yutannihilation</a>,</p>
-<p><a href='https://github.com/tidyverse/ggplot2/issues/2997'>#2997</a>).</p>
-</li>
+<li><p>Aesthetic mappings now accept functions that return <code>NULL</code> (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2997'>#2997</a>).</p></li>
 <li><p><code><a href="../reference/geom_function.html">stat_function()</a></code> now accepts rlang/purrr style anonymous functions for the <code>fun</code> parameter (<a href='https://github.com/dkahle'>@dkahle</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3159'>#3159</a>).</p></li>
 <li><p><code><a href="../reference/geom_rug.html">geom_rug()</a></code> gains an “outside” option to allow for moving the rug tassels to outside the plot area (<a href='https://github.com/njtierney'>@njtierney</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3085'>#3085</a>) and a <code>length</code> option to allow for changing the length of the rug lines (<a href='https://github.com/daniel-wells'>@daniel-wells</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3109'>#3109</a>).</p></li>
 <li><p>All geoms now take a <code>key_glyph</code> paramter that allows users to customize how legend keys are drawn (<a href='https://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3145'>#3145</a>). In addition, a new key glyph <code>timeseries</code> is provided to draw nice legends for time series (<a href='https://github.com/mitchelloharawild'>@mitchelloharawild</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3145'>#3145</a>).</p></li>
@@ -397,33 +394,21 @@
 <li><p>ggplot2 now works in Turkish locale (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3011'>#3011</a>).</p></li>
 <li><p>Clearer error messages for inappropriate aesthetics (<a href='https://github.com/clairemcwhite'>@clairemcwhite</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3060'>#3060</a>).</p></li>
 <li><p>ggplot2 no longer attaches any external packages when using functions that depend on packages that are suggested but not imported by ggplot2. The affected functions include <code><a href="../reference/geom_hex.html">geom_hex()</a></code>, <code><a href="../reference/geom_hex.html">stat_binhex()</a></code>, <code><a href="../reference/stat_summary_2d.html">stat_summary_hex()</a></code>, <code><a href="../reference/geom_quantile.html">geom_quantile()</a></code>, <code><a href="../reference/geom_quantile.html">stat_quantile()</a></code>, and <code><a href="../reference/map_data.html">map_data()</a></code> (<a href='https://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3126'>#3126</a>).</p></li>
-<li>
-<p><code><a href="../reference/geom_ribbon.html">geom_area()</a></code> and <code><a href="../reference/geom_ribbon.html">geom_ribbon()</a></code> now sort the data along the x-axis in the <code>setup_data()</code> method rather than as part of <code>draw_group()</code> (<a href='https://github.com/thomasp85'>@thomasp85</a>,</p>
-<p><a href='https://github.com/tidyverse/ggplot2/issues/3023'>#3023</a>)</p>
-</li>
+<li><p><code><a href="../reference/geom_ribbon.html">geom_area()</a></code> and <code><a href="../reference/geom_ribbon.html">geom_ribbon()</a></code> now sort the data along the x-axis in the <code>setup_data()</code> method rather than as part of <code>draw_group()</code> (<a href='https://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3023'>#3023</a>)</p></li>
 <li><p><code><a href="../reference/geom_abline.html">geom_hline()</a></code>, <code><a href="../reference/geom_abline.html">geom_vline()</a></code>, and <code><a href="../reference/geom_abline.html">geom_abline()</a></code> now throw a warning if the user supplies both an <code>xintercept</code>, <code>yintercept</code>, or <code>slope</code> value and a mapping (<a href='https://github.com/RichardJActon'>@RichardJActon</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2950'>#2950</a>).</p></li>
 <li><p><code><a href="../reference/geom_rug.html">geom_rug()</a></code> now works with <code><a href="../reference/coord_flip.html">coord_flip()</a></code> (<a href='https://github.com/has2k1'>@has2k1</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2987'>#2987</a>).</p></li>
 <li><p><code><a href="../reference/geom_violin.html">geom_violin()</a></code> no longer throws an error when quantile lines fall outside the violin polygon (<a href='https://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3254'>#3254</a>).</p></li>
 <li><p><code><a href="../reference/guide_legend.html">guide_legend()</a></code> and <code><a href="../reference/guide_colourbar.html">guide_colorbar()</a></code> now use appropriate spacing between legend key glyphs and legend text even if the legend title is missing (<a href='https://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2943'>#2943</a>).</p></li>
 <li><p>Default labels are now generated more consistently; e.g., symbols no longer get backticks, and long expressions are abbreviated with <code>...</code> (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2981'>#2981</a>).</p></li>
-<li>
-<p>All-<code>Inf</code> layers are now ignored for picking the scale (<a href='https://github.com/yutannihilation'>@yutannihilation</a>,</p>
-<p><a href='https://github.com/tidyverse/ggplot2/issues/3184'>#3184</a>).</p>
-</li>
+<li><p>All-<code>Inf</code> layers are now ignored for picking the scale (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3184'>#3184</a>).</p></li>
 <li><p>Diverging Brewer colour palette now use the correct mid-point colour (<a href='https://github.com/dariyasydykova'>@dariyasydykova</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3072'>#3072</a>).</p></li>
-<li>
-<p><code><a href="../reference/scale_colour_continuous.html">scale_color_continuous()</a></code> now points to <code><a href="../reference/scale_colour_continuous.html">scale_colour_continuous()</a></code> so that it will handle <code>type = "viridis"</code> as the documentation states (<a href='https://github.com/hlendway'>@hlendway</a>,</p>
-<p><a href='https://github.com/tidyverse/ggplot2/issues/3079'>#3079</a>).</p>
-</li>
+<li><p><code><a href="../reference/scale_colour_continuous.html">scale_color_continuous()</a></code> now points to <code><a href="../reference/scale_colour_continuous.html">scale_colour_continuous()</a></code> so that it will handle <code>type = "viridis"</code> as the documentation states (<a href='https://github.com/hlendway'>@hlendway</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3079'>#3079</a>).</p></li>
 <li><p><code><a href="../reference/scale_identity.html">scale_shape_identity()</a></code> now works correctly with <code>guide = "legend"</code> (<a href='https://github.com/malcolmbarrett'>@malcolmbarrett</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3029'>#3029</a>)</p></li>
 <li><p><code>scale_continuous</code> will now draw axis line even if the length of breaks is 0 (<a href='https://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3257'>#3257</a>)</p></li>
 <li><p><code><a href="../reference/geom_freqpoly.html">stat_bin()</a></code> will now error when the number of bins exceeds 1e6 to avoid accidentally freezing the user session (<a href='https://github.com/thomasp85'>@thomasp85</a>).</p></li>
 <li><p><code><a href="../reference/sec_axis.html">sec_axis()</a></code> now places ticks accurately when using nonlinear transformations (<a href='https://github.com/dpseidel'>@dpseidel</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2978'>#2978</a>).</p></li>
 <li><p><code><a href="../reference/facet_wrap.html">facet_wrap()</a></code> and <code><a href="../reference/facet_grid.html">facet_grid()</a></code> now automatically remove NULL from facet specs, and accept empty specs (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3070'>#3070</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2986'>#2986</a>).</p></li>
-<li>
-<p><code><a href="../reference/geom_freqpoly.html">stat_bin()</a></code> now handles data with only one unique value (<a href='https://github.com/yutannihilation'>@yutannihilation</a></p>
-<p><a href='https://github.com/tidyverse/ggplot2/issues/3047'>#3047</a>).</p>
-</li>
+<li><p><code><a href="../reference/geom_freqpoly.html">stat_bin()</a></code> now handles data with only one unique value (<a href='https://github.com/yutannihilation'>@yutannihilation</a> <a href='https://github.com/tidyverse/ggplot2/issues/3047'>#3047</a>).</p></li>
 <li><p><code><a href="../reference/sec_axis.html">sec_axis()</a></code> now accepts functions as well as formulas (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3031'>#3031</a>).</p></li>
 <li><p>New theme elements allowing different ticks lengths for each axis. For instance, this can be used to have inwards ticks on the x-axis (<code>axis.ticks.length.x</code>) and outwards ticks on the y-axis (<code>axis.ticks.length.y</code>) (<a href='https://github.com/pank'>@pank</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2935'>#2935</a>).</p></li>
 <li><p>The arguments of <code>Stat*$compute_layer()</code> and <code>Position*$compute_layer()</code> are now renamed to always match the ones of <code>Stat$compute_layer()</code> and <code>Position$compute_layer()</code> (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3202'>#3202</a>).</p></li>
@@ -459,10 +444,7 @@
 <a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li><p><code><a href="../reference/benchplot.html">benchplot()</a></code> now uses tidy evaluation (<a href='https://github.com/dpseidel'>@dpseidel</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2699'>#2699</a>).</p></li>
-<li>
-<p>The error message in <code>compute_aesthetics()</code> now only provides the names of aesthetics with mismatched lengths, rather than all aesthetics (<a href='https://github.com/karawoo'>@karawoo</a>,</p>
-<p><a href='https://github.com/tidyverse/ggplot2/issues/2853'>#2853</a>).</p>
-</li>
+<li><p>The error message in <code>compute_aesthetics()</code> now only provides the names of aesthetics with mismatched lengths, rather than all aesthetics (<a href='https://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2853'>#2853</a>).</p></li>
 <li><p>For faceted plots, data is no longer internally reordered. This makes it safer to feed data columns into <code><a href="../reference/aes.html">aes()</a></code> or into parameters of geoms or stats. However, doing so remains discouraged (<a href='https://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2694'>#2694</a>).</p></li>
 <li><p><code><a href="../reference/CoordSf.html">coord_sf()</a></code> now also understands the <code>clip</code> argument, just like the other coords (<a href='https://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2938'>#2938</a>).</p></li>
 <li><p><code><a href="../reference/fortify.html">fortify()</a></code> now displays a more informative error message for <code>grouped_df()</code> objects when dplyr is not installed (<a href='https://github.com/jimhester'>@jimhester</a>, <a href='https://github.com/tidyverse/ggplot2/issues/2822'>#2822</a>).</p></li>
@@ -835,7 +817,7 @@ to determine which elements overlap, and spreads overlapping elements evenly wit
 </ul>
 <p>And to all scales (both position and non-position.)</p>
 <p>Compared to the previous version of ggplot2, there are three main changes:</p>
-<ol>
+<ol style="list-style-type: decimal">
 <li><p><code><a href="../reference/scale_x_discrete.html">scale_x_discrete()</a></code> and <code><a href="../reference/scale_x_discrete.html">scale_y_discrete()</a></code> always show discrete NA, regardless of their source</p></li>
 <li><p>If present, <code>NA</code>s are shown in discete legends.</p></li>
 <li><p>All discrete scales gain a <code>na.translate</code> argument that allows you to control whether <code>NA</code>s are translated to something that can be visualised, or should be left as missing. Note that if you don’t translate (i.e.  <code>na.translate = FALSE)</code> the missing values will passed on to the layer, which will warning that it’s dropping missing values. To suppress the warnings, you’ll also need to add <code>na.rm = TRUE</code> to the layer call.</p></li>
