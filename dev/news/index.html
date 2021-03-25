@@ -112,8 +112,131 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        
         <li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/profiling.html">Profiling Performance</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Releases</li>
+    <li>
+      <a href="https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/">Version 3.3.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/10/ggplot2-3-1-0/">Version 3.1.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/07/ggplot2-3-0-0/">Version 3.0.0</a>
+    </li>
+    <li>
+      <a href="https://blog.rstudio.com/2016/11/14/ggplot2-2-2-0/">Version 2.2.0</a>
+    </li>
+    <li>
+      <a href="https://blog.rstudio.com/2016/03/03/ggplot2-2-1-0/">Version 2.1.0</a>
+    </li>
+    <li>
+      <a href="https://blog.rstudio.com/2015/12/21/ggplot2-2-0-0/">Version 2.0.0</a>
+    </li>
+    <li>
+      <a href="https://blog.rstudio.com/2015/01/09/ggplot2-updates/">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Changelog</a>
+    </li>
+  </ul>
+</li>
+        <li>
+  <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    News
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Releases</li>
+    <li>
+      <a href="https://www.tidyverse.org/blog/2020/03/ggplot2-3-3-0/">Version 3.3.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2019/06/ggplot2-3-2-0/">Version 3.2.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/10/ggplot2-3-1-0/">Version 3.1.0</a>
+    </li>
+    <li>
+      <a href="https://www.tidyverse.org/articles/2018/07/ggplot2-3-0-0/">Version 3.0.0</a>
+    </li>
+    <li>
+      <a href="https://blog.rstudio.com/2016/11/14/ggplot2-2-2-0/">Version 2.2.0</a>
+    </li>
+    <li>
+      <a href="https://blog.rstudio.com/2016/03/03/ggplot2-2-1-0/">Version 2.1.0</a>
+    </li>
+    <li>
+      <a href="https://blog.rstudio.com/2015/12/21/ggplot2-2-0-0/">Version 2.0.0</a>
+    </li>
+    <li>
+      <a href="https://blog.rstudio.com/2015/01/09/ggplot2-updates/">Version 1.0.0</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="../news/index.html">Changelog</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/extending-ggplot2.html">Extending ggplot2</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-in-packages.html">Using ggplot2 in packages</a>
+    </li>
+    <li>
+      <a href="../articles/ggplot2-specs.html">Aesthetic specifications</a>
+    </li>
+    <li>
+      <a href="../articles/profiling.html">Profiling Performance</a>
+    </li>
+  </ul>
+</li>
+<li>
   <a href="https://exts.ggplot2.tidyverse.org/gallery/">Extensions</a>
 </li>
 <li>
@@ -150,6 +273,7 @@
 <a href="#ggplot2-development-version" class="anchor"></a>ggplot2 (development version)<small> Unreleased </small>
 </h1>
 <ul>
+<li><p><code><a href="../reference/CoordSf.html">coord_sf()</a></code> now has an argument <code>default_crs</code> that specifies the coordinate reference system (CRS) for non-sf layers and scale/coord limits. This argument defaults to the World Geodetic System 1984 (WGS84), which means x and y positions are interpreted as longitude and latitude. This is a potentially breaking change for users who use projected coordinates in non-sf layers or in limits. Setting <code>default_crs = NULL</code> recovers the old behavior. Further, authors of extension packages implementing <code><a href="../reference/CoordSf.html">stat_sf()</a></code>-like functionality are encouraged to look at the source code of <code><a href="../reference/CoordSf.html">stat_sf()</a></code>’s <code>compute_group()</code> function to see how to provide scale-limit hints to <code><a href="../reference/CoordSf.html">coord_sf()</a></code> (<a href='https://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3659'>#3659</a>).</p></li>
 <li><p><code><a href="../reference/ggsave.html">ggsave()</a></code> now sets the default background to match the fill value of the <code>plot.background</code> theme element (<a href='https://github.com/karawoo'>@karawoo</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4057'>#4057</a>)</p></li>
 <li><p>Extended <code><a href="../reference/stat_ecdf.html">stat_ecdf()</a></code> to calculate the cdf from either x or y instead from y only (<a href='https://github.com/jgjl'>@jgjl</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4005'>#4005</a>).</p></li>
 <li><p>Fixed a bug in <code><a href="../reference/labeller.html">labeller()</a></code> so that <code>.default</code> is passed to <code><a href="../reference/as_labeller.html">as_labeller()</a></code> when labellers are specified by naming faceting variables. (<a href='https://github.com/waltersom'>@waltersom</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4031'>#4031</a>)</p></li>
@@ -158,12 +282,15 @@
 <li><p>It is now deprecated to specify <code>guides(&lt;scale&gt; = FALSE)</code> or <code>scale_*(guide = FALSE)</code> to remove a guide. Please use <code>guides(&lt;scale&gt; = "none")</code> or <code>scale_*(guide = "none")</code> instead (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4094'>#4094</a>).</p></li>
 <li><p>Date and datetime position scales support out-of-bounds (oob) arguments to control how limits affect data outside those limits (<a href='https://github.com/teunbrand'>@teunbrand</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4199'>#4199</a>).</p></li>
 <li><p><code><a href="../reference/geom_freqpoly.html">stat_bin()</a></code>’s computed variable <code>width</code> is now documented (<a href='https://github.com/tidyverse/ggplot2/issues/3522'>#3522</a>).</p></li>
+<li><p>Fixed a bug in strip assembly when theme has <code>strip.text = element_blank()</code> and plots are faceted with multi-layered strips (<a href='https://github.com/teunbrand'>@teunbrand</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4384'>#4384</a>).</p></li>
 <li><p>ggplot2 now requires R &gt;= 3.3 (<a href='https://github.com/tidyverse/ggplot2/issues/4247'>#4247</a>).</p></li>
 <li>
 <p>ggplot2 now uses <code><a href="https://rlang.r-lib.org/reference/is_installed.html" class="external-link">rlang::check_installed()</a></code> to check if a suggested package is installed, which will offer to install the package before continuing (<a href='https://github.com/tidyverse/ggplot2/issues/4375'>#4375</a>,</p>
 <ol class="example" style="list-style-type: decimal"><li>
 </li></ol>
 </li>
+<li><p>Improved error with hint when piping a <code>ggplot</code> object into a facet function (<a href='https://github.com/tidyverse/ggplot2/issues/4379'>#4379</a>, <a href='https://github.com/mitchelloharawild'>@mitchelloharawild</a>).</p></li>
+<li><p>Fix a bug that <code><a href="../reference/aes_eval.html">after_stat()</a></code> and <code><a href="../reference/aes_eval.html">after_scale()</a></code> cannot refer to aesthetics if it’s specified in the plot-global mapping (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4260'>#4260</a>).</p></li>
 </ul>
 </div>
     <div id="ggplot2-333" class="section level1">
@@ -175,6 +302,7 @@
 <li><p>Update the ggplot2 licence to an MIT license (<a href='https://github.com/tidyverse/ggplot2/issues/4231'>#4231</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4232'>#4232</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4233'>#4233</a>, and <a href='https://github.com/tidyverse/ggplot2/issues/4281'>#4281</a>)</p></li>
 <li><p>Use vdiffr conditionally so ggplot2 can be tested on systems without vdiffr</p></li>
 <li><p>Update tests to work with the new <code><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal()</a></code> defaults in R &gt;4.0.3</p></li>
+<li><p>Fixed a bug that <code><a href="../reference/guide_bins.html">guide_bins()</a></code> mistakenly ignore <code>override.aes</code> argument (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/4085'>#4085</a>).</p></li>
 </ul>
 </div>
     <div id="ggplot2-332" class="section level1">
@@ -185,7 +313,6 @@
 <ul>
 <li><p>Added an <code>outside</code> option to <code><a href="../reference/annotation_logticks.html">annotation_logticks()</a></code> that places tick marks outside of the plot bounds. (<a href='https://github.com/tidyverse/ggplot2/issues/3783'>#3783</a>, <a href='https://github.com/kbodwin'>@kbodwin</a>)</p></li>
 <li><p><code><a href="../reference/annotation_raster.html">annotation_raster()</a></code> adds support for native rasters. For large rasters, native rasters render significantly faster than arrays (<a href='https://github.com/kent37'>@kent37</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3388'>#3388</a>)</p></li>
-<li><p><code><a href="../reference/CoordSf.html">coord_sf()</a></code> now has an argument <code>default_crs</code> that specifies the coordinate reference system (CRS) for non-sf layers and scale/coord limits. This argument defaults to the World Geodetic System 1984 (WGS84), which means x and y positions are interpreted as longitude and latitude. This is a potentially breaking change for users who use projected coordinates in non-sf layers or in limits. Setting <code>default_crs = NULL</code> recovers the old behavior. Further, authors of extension packages implementing <code><a href="../reference/CoordSf.html">stat_sf()</a></code>-like functionality are encouraged to look at the source code of <code><a href="../reference/CoordSf.html">stat_sf()</a></code>’s <code>compute_group()</code> function to see how to provide scale-limit hints to <code><a href="../reference/CoordSf.html">coord_sf()</a></code> (<a href='https://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3659'>#3659</a>).</p></li>
 <li><p>Facet strips now have dedicated position-dependent theme elements (<code>strip.text.x.top</code>, <code>strip.text.x.bottom</code>, <code>strip.text.y.left</code>, <code>strip.text.y.right</code>) that inherit from <code>strip.text.x</code> and <code>strip.text.y</code>, respectively. As a consequence, some theme stylings now need to be applied to the position-dependent elements rather than to the parent elements. This change was already introduced in ggplot2 3.3.0 but not listed in the changelog. (<a href='https://github.com/thomasp85'>@thomasp85</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3683'>#3683</a>)</p></li>
 <li><p>Facets now handle layers containing no data (<a href='https://github.com/yutannihilation'>@yutannihilation</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3853'>#3853</a>).</p></li>
 <li><p>A newly added geom <code><a href="../reference/geom_density_2d.html">geom_density_2d_filled()</a></code> and associated stat <code><a href="../reference/geom_density_2d.html">stat_density_2d_filled()</a></code> can draw filled density contours (<a href='https://github.com/clauswilke'>@clauswilke</a>, <a href='https://github.com/tidyverse/ggplot2/issues/3846'>#3846</a>).</p></li>
@@ -1140,7 +1267,7 @@ to determine which elements overlap, and spreads overlapping elements evenly wit
 
       <footer>
       <div class="tidyverse">
-  <p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://github.com/wch" class="external-link">Winston Chang</a>, <a href="https://github.com/lionel-" class="external-link">Lionel Henry</a>, <a href="https://data-imaginist.com" class="external-link">Thomas Lin Pedersen</a>, Kohske Takahashi, <a href="https://clauswilke.com" class="external-link">Claus Wilke</a>, <a href="https://karawoo.com" class="external-link">Kara Woo</a>, <a href="https://yutani.rbind.io" class="external-link">Hiroaki Yutani</a>, <a href="https://fishandwhistle.net" class="external-link">Dewey Dunnington</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>,<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9000.</p></p>
+  <p><p>Developed by <a href="http://hadley.nz" class="external-link">Hadley Wickham</a>, <a href="https://github.com/wch" class="external-link">Winston Chang</a>, <a href="https://github.com/lionel-" class="external-link">Lionel Henry</a>, <a href="https://data-imaginist.com" class="external-link">Thomas Lin Pedersen</a>, Kohske Takahashi, <a href="https://clauswilke.com" class="external-link">Claus Wilke</a>, <a href="https://karawoo.com" class="external-link">Kara Woo</a>, <a href="https://yutani.rbind.io" class="external-link">Hiroaki Yutani</a>, <a href="https://fishandwhistle.net" class="external-link">Dewey Dunnington</a>, <a href="https://www.rstudio.com" class="external-link"><img src="https://www.tidyverse.org/rstudio-logo.svg" alt="RStudio" height="24"></a>.</p>,<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
 <div class="author">
