@@ -1,5 +1,11 @@
 # ggplot2 (development version)
 
+* Fix a bug in `position_jitter()` where different jitters would be applied to 
+  different position aesthetics of the same axis (@thomasp85, #2941)
+
+* `ggsave()` now uses ragg to render raster output if ragg is available 
+  (@thomasp85, #4388)
+  
 * `coord_sf()` now has an argument `default_crs` that specifies the coordinate
   reference system (CRS) for non-sf layers and scale/coord limits. This argument
   defaults to the World Geodetic System 1984 (WGS84), which means x and y positions
@@ -46,6 +52,8 @@
 
 * Fix a bug that `after_stat()` and `after_scale()` cannot refer to aesthetics
   if it's specified in the plot-global mapping (@yutannihilation, #4260).
+
+* `ggsave()` now returns the saved file location invisibly (#3379, @eliocamp).
 
 # ggplot2 3.3.3
 This is a small patch release mainly intended to address changes in R and CRAN.
