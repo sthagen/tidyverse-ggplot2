@@ -1,5 +1,11 @@
 # ggplot2 (development version)
 
+* Fix bug in `geom_dotplot()` where dots would be positioned wrong with 
+  `stackgroups = TRUE` (@thomasp85, #1745)
+
+* Make sure position_jitter creates the same jittering independent of whether it
+  is called by name or with constructor (@thomasp85, #2507)
+
 * Fix a bug in `position_dodge2()` where `NA` values in thee data would cause an
   error (@thomasp85, #2905)
 
