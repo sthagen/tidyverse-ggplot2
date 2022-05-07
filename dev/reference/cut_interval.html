@@ -14,7 +14,7 @@ cut_width() makes groups of width width."><meta property="og:image" content="htt
     
     <a class="navbar-brand me-2" href="../index.html">ggplot2</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">3.3.5.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">3.3.6.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -169,39 +169,39 @@ or left edges of bins are included in the bin.</p></dd>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu">cut_number</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [0.00224,0.116]   (0.116,0.192]   (0.192,0.307]   (0.307,0.405] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             100             100             100             100 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   (0.405,0.506]   (0.506,0.623]   (0.623,0.702]    (0.702,0.81] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             100             100             100             100 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    (0.81,0.913]   (0.913,0.999] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             100             100 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [0.000825,0.0972]     (0.0972,0.21]      (0.21,0.301]     (0.301,0.416] </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               100               100               100               100 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     (0.416,0.515]     (0.515,0.608]     (0.608,0.705]     (0.705,0.808] </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               100               100               100               100 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     (0.808,0.902]     (0.902,0.998] </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               100               100 </span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu">cut_width</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, <span class="fl">0.1</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [-0.05,0.05]  (0.05,0.15]  (0.15,0.25]  (0.25,0.35]  (0.35,0.45] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           44           98          105           95          118 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           49          101          105          116           92 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  (0.45,0.55]  (0.55,0.65]  (0.65,0.75]  (0.75,0.85]  (0.85,0.95] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           97           87          101           93          110 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           90           92           96          109          103 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  (0.95,1.05] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           52 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           47 </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu">cut_width</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, <span class="fl">0.1</span>, boundary <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   [0,0.1] (0.1,0.2] (0.2,0.3] (0.3,0.4] (0.4,0.5] (0.5,0.6] (0.6,0.7] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        94       105       101        93        99       116       109 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>        92       114       109        99       108       100        97 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (0.7,0.8] (0.8,0.9]   (0.9,1] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        94       105        84 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       100        95        86 </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu">cut_width</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, <span class="fl">0.1</span>, center <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [-0.05,0.05]  (0.05,0.15]  (0.15,0.25]  (0.25,0.35]  (0.35,0.45] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           56          100          106           95           96 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           48           92          109          109           92 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  (0.45,0.55]  (0.55,0.65]  (0.65,0.75]  (0.75,0.85]  (0.85,0.95] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          112           96          102          103           92 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>          103          102           95           99           98 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  (0.95,1.05] </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           42 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           53 </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="fu">cut_width</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span>, <span class="fl">0.1</span>, labels <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   1   2   3   4   5   6   7   8   9  10  11 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  57  98 116 112  98 109  87 117  76  90  40 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  52  88 110 102  89  98 105  97 109  96  54 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
