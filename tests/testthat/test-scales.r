@@ -229,6 +229,10 @@ test_that("size and alpha scales throw appropriate warnings for factors", {
     ggplot_build(p + geom_point(aes(alpha = d))),
     "Using alpha for a discrete variable is not advised."
   )
+  expect_warning(
+    ggplot_build(p + geom_line(aes(linewidth = d, group = 1))),
+    "Using linewidth for a discrete variable is not advised."
+  )
   # There should be no warnings for ordered factors
   expect_warning(ggplot_build(p + geom_point(aes(size = o))), NA)
   expect_warning(ggplot_build(p + geom_point(aes(alpha = o))), NA)
@@ -454,4 +458,13 @@ test_that("breaks and labels are correctly checked", {
   expect_snapshot_error(ggplotGrob(p))
   p <- ggplot(mtcars) + geom_bar(aes(mpg)) + scale_x_binned(labels = function(x) 1:2)
   expect_snapshot_error(ggplotGrob(p))
+})
+
+test_that("staged aesthetics are backtransformed properly (#4155)", {
+  p <- ggplot(data.frame(value = 16)) +
+    geom_point(aes(stage(value, after_stat = x / 2), 0)) +
+    scale_x_sqrt(limits = c(0, 16), breaks = c(2, 4, 8))
+
+  # x / 2 should be 16 / 2 = 8, thus the result should be sqrt(8) on scale_x_sqrt()
+  expect_equal(layer_data(p)$x, sqrt(8))
 })
