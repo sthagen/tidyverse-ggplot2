@@ -1,5 +1,12 @@
 # ggplot2 (development version)
 
+* Using two ordered factors as facetting variables in 
+  `facet_grid(..., as.table = FALSE)` now throws a warning instead of an
+  error (@teunbrand, #5109).
+* Added `scale_linewidth_manual()` and `scale_linewidth_identity()` to support
+  the `linewidth` aesthetic (@teunbrand, #5050).
+* Automatic breaks in `scale_*_binned()` should no longer be out-of-bounds,
+  and automatic limits expand to include these (@teunbrand, #5095, #5100).
 * Renamed computed aesthetic in `stat_ecdf()` to `ecdf`, to prevent incorrect
   scale transformations (@teunbrand, #5113 and #5112).
 * Fixed misbehaviour of `draw_key_boxplot()` and `draw_key_crossbar()` with 
