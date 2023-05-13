@@ -1,5 +1,12 @@
 # ggplot2 (development version)
 
+* `coord_munch()` can now close polygon shapes (@teunbrand, #3271)
+
+* You can now omit either `xend` or `yend` from `geom_segment()` as only one
+  of these is now required. If one is missing, it will be filled from the `x`
+  and `y` aesthetics respectively. This makes drawing horizontal or vertical
+  segments a little bit more convenient (@teunbrand, #5140).
+  
 * New `plot.tag.location` in `theme()` can control placement of the plot tag
   in the `"margin"`, `"plot"` or the new `"panel"` option (#4297).
 
@@ -62,6 +69,7 @@
 * A stacking bug in `stat_align()` was fixed (@teunbrand, #5176).
 * `stat_contour()` and `stat_contour_filled()` now warn about and remove
   duplicated coordinates (@teunbrand, #5215).
+* Improve performance of layers without positional scales (@zeehio, #4990)
 
 # ggplot2 3.4.2
 This is a hotfix release anticipating changes in r-devel, but folds in upkeep
