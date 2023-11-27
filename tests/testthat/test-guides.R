@@ -331,6 +331,23 @@ test_that("guide_colourbar warns about discrete scales", {
 
 })
 
+test_that("legend directions are set correctly", {
+
+  p <- ggplot(mtcars, aes(disp, mpg, shape = factor(cyl), colour = drat)) +
+    geom_point() +
+    theme_test()
+
+  expect_doppelganger(
+    "vertical legend direction",
+    p + theme(legend.direction = "vertical")
+  )
+
+  expect_doppelganger(
+    "horizontal legend direction",
+    p + theme(legend.direction = "horizontal")
+  )
+})
+
 test_that("guide_axis_logticks calculates appropriate ticks", {
 
   test_scale <- function(trans = identity_trans(), limits = c(NA, NA)) {
@@ -811,14 +828,15 @@ test_that("colorbar can be styled", {
     p + scale_color_gradient(low = 'white', high = 'red')
   )
 
-  expect_doppelganger("white-to-red colorbar, thick black ticks, green frame",
+  expect_doppelganger("white-to-red colorbar, long thick black ticks, green frame",
     p + scale_color_gradient(
           low = 'white', high = 'red',
           guide = guide_colorbar(
             frame = element_rect(colour = "green"),
             frame.linewidth = 1.5 / .pt,
             ticks.colour = "black",
-            ticks.linewidth = 2.5 / .pt
+            ticks.linewidth = 2.5 / .pt,
+            ticks.length = unit(0.4, "npc")
             )
         )
     )
