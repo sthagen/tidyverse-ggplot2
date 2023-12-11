@@ -36,12 +36,11 @@
 #'   (right-aligned) for expressions.
 #' @param label.vjust A numeric specifying vertical justification of the label
 #'   text.
-#' @param keywidth A numeric or a [grid::unit()] object specifying
-#'   the width of the legend key. Default value is `legend.key.width` or
-#'   `legend.key.size` in [theme()].
-#' @param keyheight A numeric or a [grid::unit()] object specifying
-#'   the height of the legend key. Default value is `legend.key.height` or
-#'   `legend.key.size` in [theme()].
+#' @param keywidth,keyheight A numeric or [grid::unit()] object specifying the
+#'   width and height of the legend key respectively. Default value is
+#'   `legend.key.width`, `legend.key.height` or `legend.key` in [theme()].\cr
+#'   `r lifecycle::badge("experimental")`: optionally a `"null"` unit to stretch
+#'   keys to the available space.
 #' @param key.spacing,key.spacing.x,key.spacing.y A numeric or [grid::unit()]
 #'   object specifying the distance between key-label pairs in the horizontal
 #'   direction (`key.spacing.x`), vertical direction (`key.spacing.y`) or both
@@ -604,18 +603,34 @@ GuideLegend <- ggproto(
       title_width  <- width_cm(grobs$title)
       title_height <- height_cm(grobs$title)
 
+      # Titles are assumed to have sufficient size when keys are null units
+      if (is.unit(params$keywidth) && unitType(params$keywidth) == "null") {
+        extra_width <- 0
+      } else {
+        extra_width  <- max(0, title_width  - sum(widths))
+      }
+      if (is.unit(params$keyheight) && unitType(params$keyheight) == "null") {
+        extra_height <- 0
+      } else {
+        extra_height <- max(0, title_height - sum(heights))
+      }
+
+      just  <- with(elements$title, rotate_just(angle, hjust, vjust))
+      hjust <- just$hjust
+      vjust <- just$vjust
+
       # Combine title with rest of the sizes based on its position
       widths <- switch(
         params$title.position,
         "left"  = c(title_width, widths),
         "right" = c(widths, title_width),
-        c(widths, max(0, title_width - sum(widths)))
+        c(extra_width * hjust, widths, extra_width * (1 - hjust))
       )
       heights <- switch(
         params$title.position,
         "top"    = c(title_height, heights),
         "bottom" = c(heights, title_height),
-        c(heights, max(0, title_height - sum(heights)))
+        c(extra_height * (1 - vjust), heights, extra_height * vjust)
       )
     }
 
@@ -670,29 +685,19 @@ GuideLegend <- ggproto(
 
     # Offset layout based on title position
     if (sizes$has_title) {
-      switch(
-        params$title.position,
-        "top" = {
-          key_row   <- key_row   + 1
-          label_row <- label_row + 1
-          title_row <- 2
-          title_col <- seq_along(sizes$widths) + 1
-        },
-        "bottom" = {
-          title_row <- length(sizes$heights)   + 1
-          title_col <- seq_along(sizes$widths) + 1
-        },
-        "left" = {
-          key_col   <- key_col   + 1
-          label_col <- label_col + 1
-          title_row <- seq_along(sizes$heights) + 1
-          title_col <- 2
-        },
-        "right" = {
-          title_row <- seq_along(sizes$heights) + 1
-          title_col <- length(sizes$widths)     + 1
-        }
-      )
+      position  <- params$title.position
+      if (position != "right") {
+        key_col   <- key_col   + 1
+        label_col <- label_col + 1
+      }
+      if (position != "bottom") {
+        key_row   <- key_row   + 1
+        label_row <- label_row + 1
+      }
+      nrow <- length(sizes$heights)
+      ncol <- length(sizes$widths)
+      title_row <- switch(position, top  = 1, bottom = nrow, seq_len(nrow)) + 1
+      title_col <- switch(position, left = 1, right  = ncol, seq_len(ncol)) + 1
     } else {
       title_row <- NA
       title_col <- NA
@@ -704,11 +709,19 @@ GuideLegend <- ggproto(
   },
 
   assemble_drawing = function(grobs, layout, sizes, params, elements) {
+    widths <- unit(c(sizes$padding[4], sizes$widths, sizes$padding[2]), "cm")
+    if (is.unit(params$keywidth) && unitType(params$keywidth) == "null") {
+      i <- unique(layout$layout$key_col)
+      widths[i] <- params$keywidth
+    }
 
-    gt <- gtable(
-      widths  = unit(c(sizes$padding[4], sizes$widths, sizes$padding[2]), "cm"),
-      heights = unit(c(sizes$padding[1], sizes$heights, sizes$padding[3]), "cm")
-    )
+    heights <- unit(c(sizes$padding[1], sizes$heights, sizes$padding[3]), "cm")
+    if (is.unit(params$keyheight) && unitType(params$keyheight) == "null") {
+      i <- unique(layout$layout$key_row)
+      heights[i] <- params$keyheight
+    }
+
+    gt <- gtable(widths = widths, heights = heights)
 
     # Add background
     if (!is.zero(elements$background)) {
