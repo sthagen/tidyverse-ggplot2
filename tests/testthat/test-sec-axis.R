@@ -171,7 +171,7 @@ test_that("sec axis works with tidy eval", {
     g
   }
 
-  t <- tibble(x = letters, y = seq(10, 260, 10), z = 1:26)
+  t <- data_frame0(x = letters, y = seq(10, 260, 10), z = 1:26)
 
   p <- f(t, x, y, z)
 
@@ -399,4 +399,23 @@ test_that("discrete scales can have secondary axes", {
   y <- get_guide_data(b, "y.sec")
   expect_equal(y$.value, c(1.5, 2.5), ignore_attr = TRUE)
   expect_equal(y$.label, c("grault", "garply"))
+})
+
+test_that("n.breaks is respected by secondary axes (#4483)", {
+
+  b <- ggplot_build(
+    ggplot(data.frame(x = c(0, 10)), aes(x, x)) +
+      scale_y_continuous(
+        n.breaks = 11,
+        sec.axis = sec_axis(~.x*100)
+      )
+  )
+
+  # We get scale breaks via guide data
+  prim <- get_guide_data(b, "y")
+  sec  <- get_guide_data(b, "y.sec")
+
+  expect_equal(prim$.value, sec$.value) # .value is in primary scale
+  expect_equal(prim$.label, as.character(seq(0, 10, length.out = 11)))
+  expect_equal(sec$.label,  as.character(seq(0, 1000, length.out = 11)))
 })
