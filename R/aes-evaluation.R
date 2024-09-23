@@ -219,11 +219,9 @@ stage_scaled <- function(start = NULL, after_stat = NULL, after_scale = NULL) {
 }
 
 # Regex to determine if an identifier refers to a calculated aesthetic
+# The pattern includes ye olde '...var...' syntax, which was
+# deprecated in 3.4.0 in favour of `after_stat()`
 match_calculated_aes <- "^\\.\\.([a-zA-Z._]+)\\.\\.$"
-
-is_dotted_var <- function(x) {
-  grepl(match_calculated_aes, x)
-}
 
 # Determine if aesthetic is calculated
 is_calculated_aes <- function(aesthetics, warn = FALSE) {
@@ -246,7 +244,8 @@ is_calculated <- function(x, warn = FALSE) {
   if (is.null(x) || is.atomic(x)) {
     FALSE
   } else if (is.symbol(x)) {
-    res <- is_dotted_var(as.character(x))
+    # Test if x is a dotted variable
+    res <- grepl(match_calculated_aes, as.character(x))
     if (res && warn) {
       what <- I(paste0("The dot-dot notation (`", x, "`)"))
       var <- gsub(match_calculated_aes, "\\1", as.character(x))
@@ -359,3 +358,39 @@ make_labels <- function(mapping) {
   }
   Map(default_label, names(mapping), mapping)
 }
+
+eval_aesthetics <- function(aesthetics, data, mask = NULL) {
+
+  env <- child_env(base_env())
+
+  # Here we mask functions, often to replace `stage()` with context appropriate
+  # functions `stage_calculated()`/`stage_scaled()`.
+  if (length(mask) > 0) {
+    aesthetics <- substitute_aes(aesthetics, mask_function, mask = mask)
+  }
+
+  evaled <- lapply(aesthetics, eval_tidy, data = data, env = env)
+  names(evaled) <- names(aesthetics)
+  compact(rename_aes(evaled))
+}
+
+# `mask` is a list of functions where `names(mask)` indicate names of functions
+# that need to be replaced, and `mask[[i]]` is the function to replace it
+# with.
+mask_function <- function(x, mask) {
+  if (!is.call(x)) {
+    return(x)
+  }
+  nms <- names(mask)
+  x[-1] <- lapply(x[-1], mask_function, mask = mask)
+  if (!is_call(x, nms)) {
+    return(x)
+  }
+  for (nm in nms) {
+    if (is_call(x, nm)) {
+      x[[1]] <- mask[[nm]]
+      return(x)
+    }
+  }
+}
+
