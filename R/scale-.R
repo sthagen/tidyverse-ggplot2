@@ -128,19 +128,22 @@ continuous_scale <- function(aesthetics, scale_name = deprecated(), palette, nam
   }
 
   transform <- as.transform(transform)
-  limits   <- allow_lambda(limits)
-
-  if (!is.null(limits) && !is.function(limits)) {
-    limits <- transform$transform(limits)
-  }
-  check_continuous_limits(limits, call = call)
 
   # Convert formula to function if appropriate
+  limits   <- allow_lambda(limits)
   breaks   <- allow_lambda(breaks)
   labels   <- allow_lambda(labels)
   rescaler <- allow_lambda(rescaler)
   oob      <- allow_lambda(oob)
   minor_breaks <- allow_lambda(minor_breaks)
+
+  if (!is.null(limits) && !is.function(limits)) {
+    limits <- transform$transform(limits)
+    if (!anyNA(limits)) {
+      limits <- sort(limits)
+    }
+  }
+  check_continuous_limits(limits, call = call)
 
   ggproto(NULL, super,
     call = call,
@@ -321,9 +324,6 @@ binned_scale <- function(aesthetics, scale_name = deprecated(), palette, name = 
   }
 
   transform <- as.transform(transform)
-  if (!is.null(limits) && !is.function(limits)) {
-    limits <- transform$transform(limits)
-  }
 
   # Convert formula input to function if appropriate
   limits   <- allow_lambda(limits)
@@ -331,6 +331,13 @@ binned_scale <- function(aesthetics, scale_name = deprecated(), palette, name = 
   labels   <- allow_lambda(labels)
   rescaler <- allow_lambda(rescaler)
   oob      <- allow_lambda(oob)
+
+  if (!is.null(limits) && !is.function(limits)) {
+    limits <- transform$transform(limits)
+    if (!anyNA(limits)) {
+      limits <- sort(limits)
+    }
+  }
 
   ggproto(NULL, super,
     call = call,
@@ -851,13 +858,14 @@ ScaleContinuous <- ggproto("ScaleContinuous", Scale,
       labels <- self$labels
     }
 
-    if (length(labels) != length(breaks)) {
+    if (!identical(size0(labels), size0(breaks))) {
       cli::cli_abort(
         "{.arg breaks} and {.arg labels} have different lengths.",
         call = self$call
       )
     }
-    if (is.list(labels)) {
+
+    if (obj_is_list(labels)) {
       # Guard against list with empty elements
       labels[lengths(labels) == 0] <- ""
       # Make sure each element is scalar
@@ -1386,7 +1394,7 @@ scale_flip_position <- function(scale) {
 }
 
 check_transformation <- function(x, transformed, name, arg = NULL, call = NULL) {
-  if (!any(is.finite(x) != is.finite(transformed))) {
+  if (!any(is_finite(x) != is_finite(transformed))) {
     return(invisible())
   }
   if (is.null(arg)) {
