@@ -34,7 +34,9 @@
 #'   may choose a slightly different number to ensure nice break labels. Will
 #'   only have an effect if `breaks = waiver()`. Use `NULL` to use the default
 #'   number of breaks given by the transformation.
-#' @param labels One of:
+#' @param labels One of the options below. Please note that when `labels` is a
+#'   vector, it is highly recommended to also set the `breaks` argument as a
+#'   vector to protect against unintended mismatches.
 #'   - `NULL` for no labels
 #'   - `waiver()` for the default labels computed by the
 #'     transformation object
@@ -612,12 +614,25 @@ Scale <- ggproto("Scale", NULL,
     ord
   },
 
-  make_title = function(title) {
+  make_title = function(self, guide_title = waiver(), scale_title = waiver(), label_title = waiver()) {
+    title <- label_title
+    scale_title <- allow_lambda(scale_title)
+    if (is.function(scale_title)) {
+      title <- scale_title(title)
+    } else {
+      title <- scale_title %|W|% title
+    }
+    guide_title <- allow_lambda(guide_title)
+    if (is.function(guide_title)) {
+      title <- guide_title(title)
+    } else {
+      title <- guide_title %|W|% title
+    }
     title
   },
 
-  make_sec_title = function(title) {
-    title
+  make_sec_title = function(self, ...) {
+    self$make_title(...)
   }
 )
 
